@@ -5,13 +5,15 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "db:seed": "./node_modules/.bin/db_seed"
+    "db:seed": "psql -U postgres -f db/seed.sql",
+    "db:init": "psql -U postgres -f db/schema.sql"
   },
   "keywords": [],
   "author": "Candace Garvin",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "db": "^3.4.0",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
     "nodemon": "^2.0.19",
