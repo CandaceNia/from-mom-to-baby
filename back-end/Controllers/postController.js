@@ -23,12 +23,8 @@ posts.get('/', async (req, res) => {
 posts.get('/:id', async (req, res) => {
   const { id } = req.params;
   const post = await getPost(id);
-
-  if (!post.id) {
-    res.status(200).json({
-      success: true,
-      payload: post,
-    });
+if (post.id) {
+    res.status(200).json(post);
   } else {
     res.status(404).json({
       success: false,
@@ -41,42 +37,31 @@ posts.get('/:id', async (req, res) => {
 posts.post('/', 
 async (req, res) => {
   try {
-    const post= await createPost(req.body);
+    const post = await createPost(id, post);
     res.json({ success: true, payload: post[0] });
   } catch (error) {
-    res.status(400).json({ error: "bad request" });
+    res.status(400).json({ error: "Not created." });
   }
 }
 );
 
 // UPDATE
 posts.put("/:id", async (req, res) => {
-    const { id } = req.params;
-    const { body } = req;
-    const updatedPost = await updatePost(id, body);
-  
-    if (updatedPost.id) {
-      res.status(200).json({
-        success: true,
-        payload: {
-          id: updatedPost.id,
-          name: updatedPost.name,
-          image: updatedPost.image,
-          caption: updatedPost.caption,
-        },
-      });
-    } else if (!updatedPost.id) {
-      res.status(422).json({
-        success: false,
-        payload: "Post not updated.",
-      });
+    try {
+      const post = await updatePost(req.body, req.params.id);
+      res.json({ success: true, payload: post });
+    } catch (error) {
+      res.status(400).json({ success: false, error: "Post was not updated...." });
     }
-  });
+  }
+);
+
 
 // DELETE
 posts.delete('/:id', async (req, res) => {
   const { id } = req.params;
   const deletedPost = await deletePost(id);
+  if (deletedPost) {
   if (deletedPost.id) {
     res.status(200).json({
       success: true,
@@ -88,6 +73,7 @@ posts.delete('/:id', async (req, res) => {
       payload: deletedPost
     });
   }
+}
 });
 
 module.exports = posts;

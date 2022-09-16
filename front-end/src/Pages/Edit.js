@@ -1,7 +1,7 @@
 import React from "react";
 import EditPost from "../Components/EditPost";
 
-const EditPost = () => {
+const Edit = () => {
     return (
         <div>
             <h3>Edit Post</h3>
@@ -10,4 +10,4 @@ const EditPost = () => {
     )
 };
 
-export default EditPost;
+export default Edit;

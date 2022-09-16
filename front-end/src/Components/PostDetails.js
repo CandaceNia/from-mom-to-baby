@@ -16,7 +16,7 @@ function PostDetails() {
     axios
       .get(`${process.env.REACT_APP_API_URL}/posts/${id}`)
       .then((res) => {
-        setPost(res.data.payload);
+        setPost(res.data);
       })
       .catch(() => {
         navigate('not found');
