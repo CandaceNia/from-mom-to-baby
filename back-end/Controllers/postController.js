@@ -41,8 +41,8 @@ posts.get('/:id', async (req, res) => {
 posts.post('/', 
 async (req, res) => {
   try {
-    const gamer = await createGamer(req.body);
-    res.json({ success: true, payload: gamer[0] });
+    const post= await createPost(req.body);
+    res.json({ success: true, payload: post[0] });
   } catch (error) {
     res.status(400).json({ error: "bad request" });
   }
