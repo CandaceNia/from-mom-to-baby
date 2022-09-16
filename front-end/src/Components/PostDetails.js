@@ -5,7 +5,7 @@ import { UserContext } from '../userContext';
 import Counter from './Counter';
 import {FaTrashAlt, FaEdit} from "react-icons/fa"
 
-function ShowPostDetails() {
+function PostDetails() {
   const trash = FaTrashAlt();
   const edit = FaEdit();
   const [post, setPost] = useState({});
@@ -63,4 +63,4 @@ function ShowPostDetails() {
     </article>
   );
 }
-export default ShowPostDetails;
+export default PostDetails;

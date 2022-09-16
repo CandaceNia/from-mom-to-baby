@@ -1,10 +1,11 @@
+import Posts from "../Components/Posts"
 
+function Index() {
+  return (
+    <div className="Index">
+      <Posts />
+    </div>
+  );
+}
 
-// export default function Index() {
-//     return (
-//       <div className="index">
-//         <h1>All Posts</h1>
-//         <Posts />
-//       </div>
-//     );
-//   }
+export default Index;
