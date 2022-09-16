@@ -9,3 +9,18 @@ name TEXT NOT NULL,
 image TEXT,
 caption TEXT
 ); 
+
+DROP DATABASE IF EXISTS questions_dev;
+CREATE DATABASE questions_dev;
+
+\c questions_dev;
+
+CREATE TABLE questions (
+id SERIAL PRIMARY KEY,
+name TEXT NOT NULL,
+question TEXT
+-- time TEXT,
+-- date TEXT
+); 
+
+
