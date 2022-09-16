@@ -1,0 +1,43 @@
+#nav {
+    display: flex ;
+    justify-content: space-between;
+    padding: 15px 45px;
+    /* margin-bottom: 15px; */
+    align-items: center;
+    background-image: url("https://secure.img1-cg.wfcdn.com/im/20850118/resize-h445%5Ecompr-r85/1280/128081114/Goree+Rose+33%2527+L+x+20.8%2522+W+Textured+Wallpaper+Roll.jpg");
+opacity: 0.9;
+height: 80px;
+}
+
+#logo {
+    text-align: left;
+    padding-right: 200px;
+    padding-left: 0px;
+    color:rgb(211, 222, 222);
+    height: 45px;
+    background-color: transparent;
+    border: none;
+    height: 20px;
+    
+    /* grid-column: 1/3; */
+font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#nav-buttons {
+    /* grid-template-columns:max-content; */
+    padding: 10px;
+    background-color: #FCF6FC;
+   font-size: 20px;
+
+}
+
+#home-button {
+    background-color: #FCF6FC;
+    font-size: 20px;
+    border: solid black;
+    padding: 10px;
+}
+
+h2 {
+margin-top: 20px
+}
