@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './Post.css';
+// import './Post.css';
 
 const API = process.env.REACT_APP_API_URL;
 
-function PostNewForm() {
+function NewPost() {
 
   const [post, setPost] = useState({
     name: '',
@@ -79,4 +79,4 @@ const addPost = (post) => {
     </div>
   );
   };
-export default PostNewForm;
+export default NewPost;

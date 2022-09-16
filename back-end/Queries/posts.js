@@ -15,10 +15,7 @@ const getAllPosts = async () => {
 // SHOW
 const getPost = async (id) => {
   try {
-    const post = await db.one('SELECT * FROM posts WHERE id=$[id]', {
-      id: id,
-    });
-    return post;
+    return await db.one("SELECT * FROM posts WHERE id=$1", id);
   } catch (err) {
     return err;
   }
