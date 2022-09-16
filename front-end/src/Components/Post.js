@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Counter from "./Counter";
-import css from "./Post.css"
+// import css from "./Post.css"
 
 function Post({ post }) {
   return (
