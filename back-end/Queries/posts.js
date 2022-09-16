@@ -12,14 +12,20 @@ const getAllPosts = async () => {
   }
 };
 
+// SHOW
 const getPost = async (id) => {
   try {
-    return await db.one('SELECT * FROM posts WHERE id=$1', id);
+    const post = await db.one('SELECT * FROM posts WHERE id=$[id]', {
+      id: id,
+    });
+    return post;
   } catch (err) {
     return err;
   }
 };
 
+
+// CREATE
 const createPost = async (post) => {
     try {
         return await db.one (
@@ -35,13 +41,34 @@ const createPost = async (post) => {
     }
 }
 
+// UPDATE
+const updateSauce = async (id, post) => {
+    try {
+      return await db.one(
+        "UPDATE posts SET name=$1, image=$2, caption=$3, WHERE id=$4 RETURNING *",
+        [
+          post.name,
+          post.image,
+          post.caption,
+          id,
+        ]
+      );
+    } catch (err) {
+      return err;
+    }
+  };
+
+// DELETE
 const deletePost = async ( id) => {
     try{
         return await db.one("DELETE FROM posts WHERE id=$1 RETURNING *", id)
     }catch (err){
 return err
     }
-}
+};
+
+
+
 module.exports = {
   getAllPosts,
   getPost,
