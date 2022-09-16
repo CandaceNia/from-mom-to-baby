@@ -13,4 +13,3 @@ function Show() {
 }
 
 export default Show;
-Footer

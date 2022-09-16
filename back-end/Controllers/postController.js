@@ -4,8 +4,10 @@ const {
   getAllPosts,
   getPost,
   createPost,
+  updatePost,
   deletePost,
 } = require('../Queries/posts');
+
 
 // INDEX
 posts.get('/', async (req, res) => {
@@ -20,10 +22,9 @@ posts.get('/', async (req, res) => {
 // SHOW
 posts.get('/:id', async (req, res) => {
   const { id } = req.params;
-
   const post = await getPost(id);
 
-  if (post.id) {
+  if (!post.id) {
     res.status(200).json({
       success: true,
       payload: post,
@@ -37,25 +38,16 @@ posts.get('/:id', async (req, res) => {
 });
 
 //   CREATE
-posts.post('/', async (req, res) => {
-  const { body } = req;
-
-  const createdPost = await createPost(body);
-
-  if (createdPost.id) {
-    res.status(200).json({
-      success: true,
-      payload: {
-        id: createdPost.id,
-        name: createdPost.name,
-        image: createdPost.image,
-        caption: createdPost.caption,
-      },
-    });
-    return;
+posts.post('/', 
+async (req, res) => {
+  try {
+    const gamer = await createGamer(req.body);
+    res.json({ success: true, payload: gamer[0] });
+  } catch (error) {
+    res.status(400).json({ error: "bad request" });
   }
-  res.status(500).json({ error: 'Could not create post.' });
-});
+}
+);
 
 // UPDATE
 posts.put("/:id", async (req, res) => {
@@ -93,7 +85,7 @@ posts.delete('/:id', async (req, res) => {
   } else {
     res.status(404).json({
       success: false,
-      payload: { id: undefined },
+      payload: deletedPost
     });
   }
 });

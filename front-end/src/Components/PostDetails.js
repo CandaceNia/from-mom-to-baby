@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { UserContext } from '../userContext';
+// import { UserContext } from '../userContext';
 import Counter from './Counter';
 import {FaTrashAlt, FaEdit} from "react-icons/fa"
 
@@ -39,7 +39,7 @@ function PostDetails() {
     }
   };
 
-  const msg = useContext(UserContext);
+  // const msg = useContext(UserContext);
   return (
     <article>
       <aside id="amount-of-likes"></aside>

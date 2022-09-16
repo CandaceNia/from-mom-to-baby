@@ -1,7 +1,11 @@
+import React from "react";
+import EditPost from "../Components/EditPost";
+
 const EditPost = () => {
     return (
         <div>
-            {/* <EditPost/> */}
+            <h3>Edit Post</h3>
+            <EditPost/>
         </div>
     )
 };
