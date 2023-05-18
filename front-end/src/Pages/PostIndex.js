@@ -3,7 +3,7 @@ import Posts from "../Components/Posts";
 
 const Index = () => {
     return (
-        <div className="Index">
+        <div className="Index page">
           <Posts />
         </div>
       );

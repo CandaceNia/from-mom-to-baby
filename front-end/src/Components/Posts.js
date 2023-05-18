@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Post from "./Post.js";
-const API = process.env.REACT_APP_API_URL;
+const API = "http://localhost:3345"
+// process.env.REACT_APP_API_URL;
 
 
 export default function Posts () {

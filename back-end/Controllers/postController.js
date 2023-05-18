@@ -37,8 +37,8 @@ if (post.id) {
 posts.post('/', 
 async (req, res) => {
   try {
-    const post = await createPost(id, post);
-    res.json({ success: true, payload: post[0] });
+    const post = await createPost(req.body);
+    res.json({ post});
   } catch (error) {
     res.status(400).json({ error: "Not created." });
   }
@@ -48,8 +48,8 @@ async (req, res) => {
 // UPDATE
 posts.put("/:id", async (req, res) => {
     try {
-      const post = await updatePost(req.body, req.params.id);
-      res.json({ success: true, payload: post });
+      const post = await updatePost(req.body);
+      res.json({ post });
     } catch (error) {
       res.status(400).json({ success: false, error: "Post was not updated...." });
     }

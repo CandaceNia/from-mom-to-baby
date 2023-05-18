@@ -3,7 +3,7 @@ import EditPost from "../Components/EditPost";
 
 const Edit = () => {
     return (
-        <div>
+        <div className="page">
             <h3>Edit Post</h3>
             <EditPost/>
         </div>

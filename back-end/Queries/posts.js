@@ -22,12 +22,14 @@ const getPost = async (id) => {
 // CREATE
 const createPost = async (post) => {
   try {
-    return await db.any(
-      ' INSERT INTO posts (name, image, caption) VALUES ($1, $2, $3) RETURNING *'[
-        (post.name, post.image, post.caption)
-      ]
+    const newPost = await db.any(
+      ' INSERT INTO posts (name, image, caption) VALUES ($1, $2, $3) RETURNING *',
+      [post.name, post.image, post.caption,]
     );
-  } catch (err) {}
+    return newPost;
+  } catch (err) {
+    return err;
+  }
 };
 
 // UPDATE

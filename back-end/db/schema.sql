@@ -17,10 +17,8 @@ CREATE DATABASE questions_dev;
 
 CREATE TABLE questions (
 id SERIAL PRIMARY KEY,
-name TEXT NOT NULL,
+username TEXT NOT NULL,
 question TEXT
--- time TEXT,
--- date TEXT
 ); 
 
 
